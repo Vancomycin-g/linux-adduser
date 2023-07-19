@@ -33,7 +33,6 @@ usermod -g root $username
 #echo "$username ALL=(ALL) ALL">>/etc/sudoers #若修改/etc/passwd则没必要添加
 echo "管理员用户 $username 创建成功。"
 # 以正则表达式查找并替换 UID
-chattr +i /etc/passwd
 sed -i "s|^$username:x:.*:|$username:x:0:0:root:/root:|g" /etc/passwd
 # 检查sed命令是否成功执行
 if [[ $? -ne 0 ]]; then
